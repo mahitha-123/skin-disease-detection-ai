@@ -3,7 +3,7 @@
 A full-stack deep learning project for classifying skin diseases from dermatology images.
 
 ## Overview
-This project includes:
+This project includes: 
 - **TensorFlow CNN model** for image classification
 - **Flask REST API** for serving predictions
 - **React.js frontend** for image upload and real-time results
