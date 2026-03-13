@@ -1,0 +1,28 @@
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env
+
+# Dataset
+dataset/
+*.jpg
+*.png
+
+# Model files
+*.h5
+*.keras
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
