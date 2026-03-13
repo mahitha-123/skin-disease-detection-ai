@@ -1,31 +1,42 @@
 # Skin Disease Classification System
 
-A full-stack deep learning project for classifying skin diseases from dermatology images.
+A full-stack deep learning web application for classifying skin diseases from dermatology images using a TensorFlow CNN model, a Flask REST API, and a React frontend.
 
-## Overview
-This project includes: 
-- **TensorFlow CNN model** for image classification
-- **Flask REST API** for serving predictions
-- **React.js frontend** for image upload and real-time results
-- Training pipeline with augmentation, dropout, and batch normalization
+---
 
-## Supported Classes
-The project is preconfigured for 7 skin disease classes:
-1. Actinic keratoses
-2. Basal cell carcinoma
-3. Benign keratosis-like lesions
-4. Dermatofibroma
-5. Melanocytic nevi
-6. Vascular lesions
-7. Melanoma
+# Overview
 
-> Note: This zip contains the **complete project source code**, but it does **not** include a real dermatology dataset or trained production weights. You must train the model on your dataset (for example, HAM10000 or your own labeled dermatology dataset) before deployment.
+This project includes:
 
-## Project Structure
+• TensorFlow/Keras CNN model for skin disease image classification  
+• Flask REST API for serving predictions  
+• React.js frontend for image upload and real-time prediction results  
+• Training pipeline with augmentation, dropout, and batch normalization  
 
-```text
+---
+
+# Supported Classes
+
+This project is configured for 7 skin disease classes:
+
+1. Actinic keratoses  
+2. Basal cell carcinoma  
+3. Benign keratosis-like lesions  
+4. Dermatofibroma  
+5. Melanocytic nevi  
+6. Vascular lesions  
+7. Melanoma  
+
+⚠️ Note: This repository contains the project source code but **does not include a dermatology dataset or trained model weights**.  
+You must train the model using a dataset such as **HAM10000**.
+
+---
+
+# Project Structure
+
+```bash
 skin-disease-cnn-full-project/
-│
+
 ├── backend/
 │   ├── app.py
 │   ├── train.py
@@ -55,21 +66,45 @@ skin-disease-cnn-full-project/
 └── README.md
 ```
 
-## Backend Setup
+---
+
+# Backend Setup
+
+Go to backend folder:
 
 ```bash
 cd backend
+```
+
+Create virtual environment:
+
+### Windows
+```bash
 python -m venv venv
-source venv/bin/activate   # macOS/Linux
-venv\Scripts\activate      # Windows
+venv\Scripts\activate
+```
+
+### Mac / Linux
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Dataset Format
+---
+
+# Dataset Format
+
 Organize your dataset like this:
 
-```text
+```bash
 data/
+
 ├── train/
 │   ├── actinic_keratoses/
 │   ├── basal_cell_carcinoma/
@@ -78,7 +113,7 @@ data/
 │   ├── melanocytic_nevi/
 │   ├── vascular_lesions/
 │   └── melanoma/
-│
+
 └── val/
     ├── actinic_keratoses/
     ├── basal_cell_carcinoma/
@@ -89,7 +124,11 @@ data/
     └── melanoma/
 ```
 
-## Train the Model
+---
+
+# Train the Model
+
+Run:
 
 ```bash
 cd backend
@@ -97,47 +136,93 @@ python train.py
 ```
 
 This will:
-- Load images from `../data/train` and `../data/val`
-- Apply augmentation
-- Train a CNN model
-- Save the best model to `backend/models/skin_disease_model.keras`
 
-## Run Flask API
+• Load images from `../data/train` and `../data/val`  
+• Apply data augmentation  
+• Train the CNN model  
+• Save the model to:
+
+```bash
+backend/models/skin_disease_model.keras
+```
+
+---
+
+# Run Flask API
+
+Start backend server:
 
 ```bash
 cd backend
 python app.py
 ```
 
-Default API URL:
-- `http://127.0.0.1:5000`
+Backend runs at:
 
-## Frontend Setup
+```
+http://127.0.0.1:5000
+```
+
+---
+
+# Frontend Setup
+
+Go to frontend folder:
 
 ```bash
 cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
+
+Run development server:
+
+```bash
 npm run dev
 ```
 
-Default frontend URL:
-- `http://localhost:5173`
+Frontend runs at:
 
-## API Endpoints
+```
+http://localhost:5173
+```
+
+---
+
+# API Endpoints
 
 ### Health Check
-```http
+
+```
 GET /health
 ```
 
 ### Predict
-```http
+
+```
 POST /predict
-Content-Type: multipart/form-data
-Body: image=<file>
 ```
 
-### Sample Response
+Content-Type:
+
+```
+multipart/form-data
+```
+
+Body:
+
+```
+image=<file>
+```
+
+---
+
+# Sample Response
+
 ```json
 {
   "predicted_class": "melanoma",
@@ -154,15 +239,39 @@ Body: image=<file>
 }
 ```
 
-## Tech Stack
-- Python
-- TensorFlow / Keras
-- CNN
-- Flask
-- Flask-CORS
-- React.js
-- Axios
-- Vite
+---
 
-## Important Note
-This project is for **educational and portfolio purposes** only and should **not** be used as a medical diagnosis tool.
+# Tech Stack
+
+Python  
+TensorFlow / Keras  
+CNN  
+Flask  
+Flask-CORS  
+React.js  
+Axios  
+Vite  
+
+---
+
+# Future Improvements
+
+• Add user authentication system  
+• Save prediction history in database  
+• Deploy frontend and backend to cloud  
+• Improve CNN model accuracy  
+• Add disease description and treatment suggestions  
+
+---
+
+# Important Note
+
+This project is intended for **educational and portfolio purposes only**.  
+
+It should **not be used for medical diagnosis** or as a replacement for professional medical advice.
+
+---
+
+# Author
+
+Mahitha Basivireddy
